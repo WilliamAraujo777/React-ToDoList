@@ -4,11 +4,11 @@ import TodoItem from './TodoItem.jsx';
 function TodoList({ todos, removeItem, flagConcluido }) {
   return (
     <ul>
-      {todos.map((todo, index) => (
+      {todos.map((lista, index) => (
         <TodoItem
           key={index}
           index={index}
-          todo={todo}
+          lista={lista}
           removeItem={removeItem}
           flagConcluido={flagConcluido}
         />

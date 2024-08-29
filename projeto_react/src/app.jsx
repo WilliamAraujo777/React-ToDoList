@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import TodoList from './components/TodoList.jsx';
+import TodoList from './components/TodoList';
+import TaskChart from './components/TaskChart';
 import './app.css';
+
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
-  const addTodo = () => {
+  const addLista = () => {
     if (inputValue.trim() !== '') {
       setTodos([...todos, { text: inputValue, concluida: false }]);
       setInputValue('');
@@ -24,7 +26,7 @@ function App() {
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <h1>Lista de Tarefas</h1>
       <input
         type="text"
@@ -32,8 +34,11 @@ function App() {
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Adicionar nova tarefa"
       />
-      <button onClick={addTodo}>Adicionar</button>
+      <button onClick={addLista}>Adicionar</button>
+      
       <TodoList todos={todos} removeItem={removeItem} flagConcluido={flagConcluido} />
+      <TaskChart todos={todos} />
+    
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 
-function TodoItem({todo, index, removeItem, flagConcluido }) {
+function TodoItem({lista, index, removeItem, flagConcluido }) {
   return (
-    <li style={{textDecoration: todo.concluida ? 'line-through' : 'none'}}>
+    <li style={{textDecoration: lista.concluida ? 'line-through' : 'none'}}>
       <input
         type="checkbox"
-        checked={todo.concluida}
+        checked={lista.concluida}
         onChange={() => flagConcluido(index)}
       />
-      {todo.text}
-      <button onClick={() => removeItem(index)}>Excluir Task</button>
+      {lista.text}
+      <button onClick={() => removeItem(index)}>Excluir</button>
     </li>
   );
 }
